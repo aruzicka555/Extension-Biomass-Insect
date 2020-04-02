@@ -156,6 +156,7 @@ namespace Landis.Extension.Insects
                 PlugIn.ModelCore.NormalDistribution.Mu = 0.0;
                 PlugIn.ModelCore.NormalDistribution.Sigma = 1.0;
                 double randomNum = PlugIn.ModelCore.NormalDistribution.NextDouble();
+                randomNum = PlugIn.ModelCore.NormalDistribution.NextDouble();
 
                 DistributionType distDuration = insect.DurationDistribution;
 
