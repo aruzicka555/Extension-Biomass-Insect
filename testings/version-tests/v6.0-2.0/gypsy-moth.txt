@@ -2,9 +2,9 @@ LandisData InsectDefoliator
 
 InsectName	GypsyMoth
 
-MeanDuration	0.5 <<exp rate
-
-StdDevDuration	1
+DurationDistribution	Weibull  
+DurationParameter1	2.370419
+DurationParameter2	1.692427
 
 MeanTimeBetweenOutbreaks	7
 
@@ -12,7 +12,6 @@ StdDevTimeBetweenOutbreaks	2
 
 NeighborhoodSize	250	<< meters
 
-InitialPatchShapeCalibrator	1.0 	<< must be <= 1.0  Higher = Rounder; Lower = tracks host quality closer.
 >> Lower this number to lower probabilities of patch generation, i.e. start fewer patches. 
 InitialPatchOutbreakSensitivity	.0005 	<< must be > 0.0
 
