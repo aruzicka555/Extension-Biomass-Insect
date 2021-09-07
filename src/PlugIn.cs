@@ -170,10 +170,11 @@ namespace Landis.Extension.Insects
                 insect.ActiveOutbreak = false;
                 insect.SingleOutbreakYear = false;
 
-                PlugIn.ModelCore.NormalDistribution.Mu = 0.0;
-                PlugIn.ModelCore.NormalDistribution.Sigma = 1.0;
-                double randomNum = PlugIn.ModelCore.NormalDistribution.NextDouble();
-                randomNum = PlugIn.ModelCore.NormalDistribution.NextDouble(); 
+                //PlugIn.ModelCore.NormalDistribution.Mu = 0.0;
+                //PlugIn.ModelCore.NormalDistribution.Sigma = 1.0;
+                //double randomNum = PlugIn.ModelCore.NormalDistribution.NextDouble();
+                //randomNum = PlugIn.ModelCore.NormalDistribution.NextDouble();
+                double randomNum = Distribution.GenerateRandomNum(DistributionType.Normal, 0.0, 1.0);                
 
                 DistributionType distDuration = insect.DurationDistribution;
 
