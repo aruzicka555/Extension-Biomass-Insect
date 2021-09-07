@@ -240,7 +240,7 @@ namespace Landis.Extension.Insects
                     && insect.OutbreakStopYear == PlugIn.ModelCore.CurrentTime)
                 {
                     insect.ActiveOutbreak = true;
-                    //UI.WriteLine("   {0} is active.  StartYear={1}, StopYear={2}, CurrentYear={3}.", insect.Name, insect.OutbreakStartYear, insect.OutbreakStopYear, Model.Core.CurrentTime);
+                    PlugIn.ModelCore.UI.WriteLine("   {0} is active.  StartYear={1}, StopYear={2}, CurrentYear={3}.", insect.Name, insect.OutbreakStartYear, insect.OutbreakStopYear, PlugIn.ModelCore.CurrentTime);
 
                     if (insect.OutbreakStartYear == insect.OutbreakStopYear) // shouldn't need this. JRF
                         insect.SingleOutbreakYear = true;

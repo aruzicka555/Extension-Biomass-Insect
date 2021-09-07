@@ -25,8 +25,6 @@ namespace Landis.Extension.Insects
         private DistributionType name;
         private double value1;
         private double value2;
-        public static readonly object distributionThreadLock = new object();
-
 
         //---------------------------------------------------------------------
         public DistributionType Name
@@ -81,7 +79,7 @@ namespace Landis.Extension.Insects
                     randomNum = parameter1;
                 else
                 {
-                    lock (distributionThreadLock)
+                    lock (Globals.distributionThreadLock)
                     {
                         PlugIn.ModelCore.NormalDistribution.Mu = parameter1; //mean
                         PlugIn.ModelCore.NormalDistribution.Sigma = parameter2; // std dev
@@ -93,7 +91,7 @@ namespace Landis.Extension.Insects
             }
             else if (dist == DistributionType.Exponential)
             {
-                lock (distributionThreadLock)
+                lock (Globals.distributionThreadLock)
                 {
                     PlugIn.ModelCore.ExponentialDistribution.Lambda = parameter1;
                     randomNum = PlugIn.ModelCore.ExponentialDistribution.NextDouble();
@@ -107,7 +105,7 @@ namespace Landis.Extension.Insects
                     randomNum = parameter1;
                 else
                 {
-                    lock (distributionThreadLock)
+                    lock (Globals.distributionThreadLock)
                     {
                         PlugIn.ModelCore.WeibullDistribution.Alpha = parameter1;// mean
                         PlugIn.ModelCore.WeibullDistribution.Lambda = parameter2;// std dev
@@ -123,7 +121,7 @@ namespace Landis.Extension.Insects
                     randomNum = parameter1;
                 else
                 {
-                    lock (distributionThreadLock)
+                    lock (Globals.distributionThreadLock)
                     {
                         PlugIn.ModelCore.GammaDistribution.Alpha = parameter1;// mean
                         PlugIn.ModelCore.GammaDistribution.Beta = parameter2;// std dev
@@ -142,7 +140,7 @@ namespace Landis.Extension.Insects
                     randomNum = 1;
                 else
                 {
-                    lock (distributionThreadLock)
+                    lock (Globals.distributionThreadLock)
                     {
                         PlugIn.ModelCore.BetaDistribution.Alpha = parameter1;// mean
                         PlugIn.ModelCore.BetaDistribution.Beta = parameter2;// std dev

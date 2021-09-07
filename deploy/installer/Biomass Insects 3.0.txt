@@ -1,7 +1,7 @@
 LandisData   Extension
 
 Name         "Biomass Insects"
-Version      "3.0 (alpha release 4)"
+Version      "3.0 (beta release 1)"
 Type         disturbance:insects
 Assembly     Landis.Extension.BiomassInsects-v3
 Class        Landis.Extension.Insects.PlugIn
