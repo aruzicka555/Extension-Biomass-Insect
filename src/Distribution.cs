@@ -73,66 +73,53 @@ namespace Landis.Extension.Insects
         public static double GenerateRandomNum(DistributionType dist, double parameter1, double parameter2)
         {
             double randomNum = 0.0;
-            if(dist == DistributionType.Normal)
+            if (dist == DistributionType.Normal)
             {
                 if (parameter2 == 0)
                     randomNum = parameter1;
                 else
                 {
-                    lock (Globals.distributionThreadLock)
-                    {
-                        PlugIn.ModelCore.NormalDistribution.Mu = parameter1; //mean
-                        PlugIn.ModelCore.NormalDistribution.Sigma = parameter2; // std dev
-                        randomNum = PlugIn.ModelCore.NormalDistribution.NextDouble();
-                        randomNum = PlugIn.ModelCore.NormalDistribution.NextDouble();
-                        return randomNum;
-                    }
+                    PlugIn.ModelCore.NormalDistribution.Mu = parameter1; //mean
+                    PlugIn.ModelCore.NormalDistribution.Sigma = parameter2; // std dev
+                    randomNum = PlugIn.ModelCore.NormalDistribution.NextDouble();
+                    randomNum = PlugIn.ModelCore.NormalDistribution.NextDouble();
+                    return randomNum;
                 }
             }
             else if (dist == DistributionType.Exponential)
             {
-                lock (Globals.distributionThreadLock)
+                PlugIn.ModelCore.ExponentialDistribution.Lambda = parameter1;
+                randomNum = PlugIn.ModelCore.ExponentialDistribution.NextDouble();
+                randomNum = PlugIn.ModelCore.ExponentialDistribution.NextDouble();
+                return randomNum;
+            }
+            else if (dist == DistributionType.Weibull)
+            {
+                if (parameter2 == 0)
+                    randomNum = parameter1;
+                else
                 {
-                    PlugIn.ModelCore.ExponentialDistribution.Lambda = parameter1;
-                    randomNum = PlugIn.ModelCore.ExponentialDistribution.NextDouble();
-                    randomNum = PlugIn.ModelCore.ExponentialDistribution.NextDouble();
+                    PlugIn.ModelCore.WeibullDistribution.Alpha = parameter1;// mean
+                    PlugIn.ModelCore.WeibullDistribution.Lambda = parameter2;// std dev
+                    randomNum = PlugIn.ModelCore.WeibullDistribution.NextDouble();
+                    randomNum = PlugIn.ModelCore.WeibullDistribution.NextDouble();
                     return randomNum;
                 }
             }
-            else if(dist == DistributionType.Weibull)
+            else if (dist == DistributionType.Gamma)
             {
                 if (parameter2 == 0)
                     randomNum = parameter1;
                 else
                 {
-                    lock (Globals.distributionThreadLock)
-                    {
-                        PlugIn.ModelCore.WeibullDistribution.Alpha = parameter1;// mean
-                        PlugIn.ModelCore.WeibullDistribution.Lambda = parameter2;// std dev
-                        randomNum = PlugIn.ModelCore.WeibullDistribution.NextDouble();
-                        randomNum = PlugIn.ModelCore.WeibullDistribution.NextDouble();
-                        return randomNum;
-                    }
+                    PlugIn.ModelCore.GammaDistribution.Alpha = parameter1;// mean
+                    PlugIn.ModelCore.GammaDistribution.Beta = parameter2;// std dev
+                    randomNum = PlugIn.ModelCore.GammaDistribution.NextDouble();
+                    randomNum = PlugIn.ModelCore.GammaDistribution.NextDouble();
+                    return randomNum;
                 }
             }
-            else if(dist == DistributionType.Gamma)
-            {
-                if (parameter2 == 0)
-                    randomNum = parameter1;
-                else
-                {
-                    lock (Globals.distributionThreadLock)
-                    {
-                        PlugIn.ModelCore.GammaDistribution.Alpha = parameter1;// mean
-                        PlugIn.ModelCore.GammaDistribution.Beta = parameter2;// std dev
-                        randomNum = PlugIn.ModelCore.GammaDistribution.NextDouble();
-                        randomNum = PlugIn.ModelCore.GammaDistribution.NextDouble();
-                        return randomNum;
-                    }
-                    { }
-                }
-            }
-            else if(dist == DistributionType.Beta)
+            else if (dist == DistributionType.Beta)
             {
                 if (parameter1 == 0)
                     randomNum = 0;
@@ -140,14 +127,11 @@ namespace Landis.Extension.Insects
                     randomNum = 1;
                 else
                 {
-                    lock (Globals.distributionThreadLock)
-                    {
-                        PlugIn.ModelCore.BetaDistribution.Alpha = parameter1;// mean
-                        PlugIn.ModelCore.BetaDistribution.Beta = parameter2;// std dev
-                        randomNum = PlugIn.ModelCore.BetaDistribution.NextDouble();
-                        randomNum = PlugIn.ModelCore.BetaDistribution.NextDouble();
-                        return randomNum;
-                    }
+                    PlugIn.ModelCore.BetaDistribution.Alpha = parameter1;// mean
+                    PlugIn.ModelCore.BetaDistribution.Beta = parameter2;// std dev
+                    randomNum = PlugIn.ModelCore.BetaDistribution.NextDouble();
+                    randomNum = PlugIn.ModelCore.BetaDistribution.NextDouble();
+                    return randomNum;
                 }
             }
             return randomNum;
