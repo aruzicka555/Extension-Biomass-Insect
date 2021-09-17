@@ -156,6 +156,13 @@ namespace Landis.Extension.Insects
                 GetNextLine();
             }
 
+            if (parameters.SppTable != null && PlugIn.ModelCore.Species != null && 
+                parameters.SppTable.Count != PlugIn.ModelCore.Species.Count)
+            {
+                throw new MultiLineException("The number of tree species differs between the Species input file (" + PlugIn.ModelCore.Species.Count
+                    + " species) and Biomass Insects (" + parameters.SppTable.Count + " species).");
+            }
+
             //  Read table of Susceptibilities.
             //  Susceptibilities are in decreasing order.
             ReadName(Susceptiblities);
