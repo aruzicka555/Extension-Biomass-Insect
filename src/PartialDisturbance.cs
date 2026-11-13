@@ -55,7 +55,7 @@ namespace Landis.Extension.Insects
 
         //---------------------------------------------------------------------
 
-        int IDisturbance.ReduceOrKillMarkedCohort(ICohort cohort)
+        double IDisturbance.ReduceOrKillMarkedCohort(ICohort cohort)
         {
             int biomassMortality = 0;
             double percentMortality = 0.0;

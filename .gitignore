@@ -214,3 +214,10 @@ src/Biomass-Insects-v7.sln
 src/lib/Landis.Library.Metadata-v2.dll
 src/lib/Landis.Library.UniversalCohorts-v1.dll
 src/Biomass-Insects.sln
+/testings/Core8.0-Insects4.0/biomass-succession
+testings/Core8.0-Insects4.0/insects-log.csv
+/testings/Core8.0-Insects4.0/Insects
+/testings/Core8.0-Insects4.0/Metadata
+testings/Core8.0-Insects4.0/Landis-climate-log.txt
+testings/Core8.0-Insects4.0/Landis-log.txt
+testings/Core8.0-Insects4.0/Biomass-succession-log.csv

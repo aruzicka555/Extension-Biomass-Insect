@@ -21,6 +21,7 @@ InitialPatchValue1	.5	<<depends on the distribution, must be > 0.0
 InitialPatchValue2	25	<<depends on the distribution, must be > 0.0
 
 SpeciesParameters
+MortalityEstimate	Annual
 >> Susceptibility class by species (from Liebhold et al... reference here)
 >> Species	Susceptibility	 Growth Reduction Parameters  Mortality Parameters
 >>		Class		 Slope	Intercept	      Slope	Intercept

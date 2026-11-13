@@ -6,9 +6,9 @@
     <AssemblyCompany>Landis-II-Foundation</AssemblyCompany>
     <AssemblyCopyright>Landis-II-Foundation</AssemblyCopyright>
     <AssemblyName>Landis.Extension.BiomassInsects-v4</AssemblyName>
-    <AssemblyVersion>4.0</AssemblyVersion>
-    <FileVersion>4.0</FileVersion>
-    <Version>4.0</Version>
+    <AssemblyVersion>4.1</AssemblyVersion>
+    <FileVersion>4.1</FileVersion>
+    <Version>4.1</Version>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <PackageReleaseNotes>.NET Standard 2.0 update</PackageReleaseNotes>
     <AssemblyProduct>Landis.Extension.BiomassBDA-v2</AssemblyProduct>
@@ -30,9 +30,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Landis.Library.UniversalCohorts-v1">
-    </Reference>
     <Reference Include="Landis.Library.Metadata-v2">
+    </Reference>
+    <Reference Include="Landis.Library.UniversalCohorts-v2">
+      <HintPath>lib\Landis.Library.UniversalCohorts-v2.dll</HintPath>
     </Reference>
   </ItemGroup>
 

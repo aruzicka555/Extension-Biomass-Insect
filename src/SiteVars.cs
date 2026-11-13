@@ -17,7 +17,7 @@ namespace Landis.Extension.Insects
         private static ISiteVar<int> biomassRemoved;
         //private static ISiteVar<double> neighborhoodDefoliation;
         private static ISiteVar<double> initialOutbreakProb;
-        private static ISiteVar<ISiteCohorts> cohorts;
+        private static ISiteVar<SiteCohorts> cohorts;
         private static ISiteVar<int> cohortsPartiallyDamaged;
         //private static ISiteVar<string> insectName;
         private static ISiteVar<int> siteDefoliation; //Brian M update 
@@ -31,7 +31,7 @@ namespace Landis.Extension.Insects
             biomassRemoved          = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //neighborhoodDefoliation = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
             initialOutbreakProb     = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
-            cohorts                 = PlugIn.ModelCore.GetSiteVar<ISiteCohorts>("Succession.BiomassCohorts");
+            cohorts                 = PlugIn.ModelCore.GetSiteVar<SiteCohorts>("Succession.UniversalCohorts");
             cohortsPartiallyDamaged = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //insectName = PlugIn.ModelCore.Landscape.NewSiteVar<string>();
             siteDefoliation = PlugIn.ModelCore.Landscape.NewSiteVar<int>(); //Brian M update 
@@ -110,7 +110,7 @@ namespace Landis.Extension.Insects
         }
 
         //---------------------------------------------------------------------
-        public static ISiteVar<ISiteCohorts> Cohorts
+        public static ISiteVar<SiteCohorts> Cohorts
         {
             get
             {
